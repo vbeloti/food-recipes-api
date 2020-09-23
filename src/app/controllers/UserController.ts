@@ -1,11 +1,15 @@
 import { Request, Response } from 'express'
+import BcryptAdapter from '../adapters/bcrypt-adapter'
+import UsersRepository from '../repositories/UsersRepository'
 import CreateUserService from '../services/CreateUserService'
 
 class UserController {
   async store (req: Request, res: Response) {
     const { name, email, password } = req.body
 
-    const createUser = new CreateUserService()
+    const usersRepository = new UsersRepository()
+    const hashProvider = new BcryptAdapter()
+    const createUser = new CreateUserService(usersRepository, hashProvider)
 
     await createUser.execute({ name, email, password })
 
