@@ -1,8 +1,15 @@
 import User from '../models/User'
 
-type IUserWithoutPassword = Omit<User, 'password'>
+export interface IUserWithoutPassword {
+  id: string;
+  name: string;
+  email: string;
+  password?: string;
+  created_at: Date;
+  updated_at: Date;
+}
 
-export default function deletePassword (user: User): IUserWithoutPassword {
+export default function removePassword (user: User): IUserWithoutPassword {
   const userWithoutPassowrd: IUserWithoutPassword = { ...user }
 
   delete userWithoutPassowrd.password

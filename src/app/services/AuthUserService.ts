@@ -4,6 +4,7 @@ import User from '../models/User'
 import IHashProvider from '../providers/IHashProvider'
 import ITokenProvider from '../providers/ITokenProvider'
 import IUsersRepository from '../repositories/IUsersRepository'
+import removePassword from '../utils/removePassword'
 
 interface IRequest {
   name: string;
@@ -12,7 +13,7 @@ interface IRequest {
 }
 
 interface IResponse {
-  user: User;
+  user: Partial<User>;
   token: string;
 }
 
@@ -37,9 +38,7 @@ class AuthUserService {
 
     const token = await this.tokenProvider.generateToken({ id: user.id }, 'secret', { expiresIn: '7d' })
 
-    user.password = ''
-
-    return { user, token }
+    return { user: removePassword(user), token }
   }
 }
 
