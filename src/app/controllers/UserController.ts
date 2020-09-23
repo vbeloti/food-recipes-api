@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import BcryptAdapter from '../adapters/bcrypt-adapter'
+import BcryptAdapter from '../adapters/bcrypt-hash-adapter'
 import UsersRepository from '../repositories/UsersRepository'
 import CreateUserService from '../services/CreateUserService'
 

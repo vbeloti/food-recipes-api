@@ -3,7 +3,7 @@ import { getRepository, Repository } from 'typeorm'
 import IUsersRepository from './IUsersRepository'
 
 import User from '../models/User'
-import ICreateUser from '../adapters/ICreateUser'
+import ICreateUser from '../providers/ICreateUser'
 
 class UsersRepository implements IUsersRepository {
   private ormRepository: Repository<User>;

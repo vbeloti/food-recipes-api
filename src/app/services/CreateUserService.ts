@@ -1,7 +1,7 @@
 import AppError from '../errors/AppError'
 
 import User from '../models/User'
-import IHashProvider from '../adapters/IHashProvider'
+import IHashProvider from '../providers/IHashProvider'
 import IUsersRepository from '../repositories/IUsersRepository'
 
 interface Request {
@@ -14,9 +14,9 @@ class CreateUserService {
   constructor (private usersRepository: IUsersRepository, private hashProvider: IHashProvider) {}
 
   public async execute ({ name, email, password }: Request): Promise<User> {
-    const checkUserExists = await this.usersRepository.findByEmail(email)
+    const userExists = await this.usersRepository.findByEmail(email)
 
-    if (checkUserExists) {
+    if (userExists) {
       throw new AppError('Email address already used.', 401)
     }
 
