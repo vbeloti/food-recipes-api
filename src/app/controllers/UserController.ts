@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import BcryptAdapter from '../adapters/bcrypt-hash-adapter'
+import BcryptHashAdapter from '../adapters/bcrypt-hash-adapter'
 import UsersRepository from '../repositories/UsersRepository'
 import CreateUserService from '../services/CreateUserService'
 
@@ -8,7 +8,7 @@ class UserController {
     const { name, email, password } = req.body
 
     const usersRepository = new UsersRepository()
-    const hashProvider = new BcryptAdapter()
+    const hashProvider = new BcryptHashAdapter()
     const createUser = new CreateUserService(usersRepository, hashProvider)
 
     await createUser.execute({ name, email, password })
@@ -17,4 +17,4 @@ class UserController {
   }
 }
 
-export default new UserController()
+export default UserController

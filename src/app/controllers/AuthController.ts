@@ -15,8 +15,6 @@ class AuthController {
 
     const token = await createToken.execute({ name, email, password })
 
-    console.log(token)
-
     return res.json(token)
   }
 }
