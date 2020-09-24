@@ -27,6 +27,10 @@ class CreateUserService {
       throw new AppError('Email is invalid.', 401)
     }
 
+    if (password.length < 8) {
+      throw new AppError('Password must be contains 8 characters.', 409)
+    }
+
     const hashedPassword = await this.hashProvider.generateHash(password)
 
     const user = await this.usersRepository.create({

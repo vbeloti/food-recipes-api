@@ -28,6 +28,22 @@ describe('CreateUserService', () => {
     await expect(sut.execute(fakeAccountInvalidEmail)).rejects.toBeInstanceOf(AppError)
   })
 
+  test('Should do not create user with password length different off 8 characters', async () => {
+    const usersRepository = new FakeUsersRepository()
+    const hashProvider = new HashStub()
+    const emailProvider = new EmailStub()
+
+    const sut = new CreateUserService(usersRepository, hashProvider, emailProvider)
+
+    const fakeAccountInvalidPass = {
+      name: 'any_name',
+      email: 'any_email@mail.com',
+      password: 'pass'
+    }
+
+    await expect(sut.execute(fakeAccountInvalidPass)).rejects.toBeInstanceOf(AppError)
+  })
+
   test('Should do not create user with email duplicated', async () => {
     const usersRepository = new FakeUsersRepository()
     const hashProvider = new HashStub()
