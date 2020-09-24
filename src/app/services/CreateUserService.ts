@@ -1,6 +1,7 @@
 import AppError from '../errors/AppError'
 
 import User from '../models/User'
+import { EmailValidator } from '../providers/EmailValidator'
 import IHashProvider from '../providers/IHashProvider'
 import IUsersRepository from '../repositories/IUsersRepository'
 
@@ -11,13 +12,19 @@ interface Request {
 }
 
 class CreateUserService {
-  constructor (private usersRepository: IUsersRepository, private hashProvider: IHashProvider) {}
+  constructor (private usersRepository: IUsersRepository, private hashProvider: IHashProvider, private emailProvider: EmailValidator) {}
 
   public async execute ({ name, email, password }: Request): Promise<User> {
     const userExists = await this.usersRepository.findByEmail(email)
 
     if (userExists) {
       throw new AppError('Email address already used.', 401)
+    }
+
+    const isValidEmail = this.emailProvider.isValid(email)
+
+    if (!isValidEmail) {
+      throw new AppError('Email is invalid.', 401)
     }
 
     const hashedPassword = await this.hashProvider.generateHash(password)

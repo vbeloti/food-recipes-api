@@ -1,7 +1,8 @@
 import AppError from '../errors/AppError'
 import CreateUserService from './CreateUserService'
-import makeHashProvider from './fakes/makeHashProvider'
-import makeUsersRepository from './fakes/makeUsersRepository'
+import EmailStub from './fakes/makeEmailProvider'
+import HashStub from './fakes/makeHashProvider'
+import FakeUsersRepository from './fakes/makeUsersRepository'
 
 const makeFakeAccount = () => ({
   id: 'valid_id',
@@ -11,11 +12,28 @@ const makeFakeAccount = () => ({
 })
 
 describe('CreateUserService', () => {
-  test('Should do not create user with email duplicated', async () => {
-    const usersRepository = makeUsersRepository()
-    const hashProvider = makeHashProvider()
+  test('Should do not create user with invalid email', async () => {
+    const usersRepository = new FakeUsersRepository()
+    const hashProvider = new HashStub()
+    const emailProvider = new EmailStub()
 
-    const sut = new CreateUserService(usersRepository, hashProvider)
+    const sut = new CreateUserService(usersRepository, hashProvider, emailProvider)
+
+    const fakeAccountInvalidEmail = {
+      name: 'any_name',
+      email: 'invalid_email',
+      password: 'any_password'
+    }
+
+    await expect(sut.execute(fakeAccountInvalidEmail)).rejects.toBeInstanceOf(AppError)
+  })
+
+  test('Should do not create user with email duplicated', async () => {
+    const usersRepository = new FakeUsersRepository()
+    const hashProvider = new HashStub()
+    const emailProvider = new EmailStub()
+
+    const sut = new CreateUserService(usersRepository, hashProvider, emailProvider)
 
     await sut.execute(makeFakeAccount())
 
@@ -23,10 +41,11 @@ describe('CreateUserService', () => {
   })
 
   test('Should be able to create a new user', async () => {
-    const usersRepository = makeUsersRepository()
-    const hashProvider = makeHashProvider()
+    const usersRepository = new FakeUsersRepository()
+    const hashProvider = new HashStub()
+    const emailProvider = new EmailStub()
 
-    const sut = new CreateUserService(usersRepository, hashProvider)
+    const sut = new CreateUserService(usersRepository, hashProvider, emailProvider)
 
     const user = await sut.execute(makeFakeAccount())
 

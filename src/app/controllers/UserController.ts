@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import BcryptHashAdapter from '../adapters/bcrypt-hash-adapter'
+import { EmailValidatorAdapter } from '../adapters/email-validator-adapter'
 import UsersRepository from '../repositories/UsersRepository'
 import CreateUserService from '../services/CreateUserService'
 
@@ -9,7 +10,8 @@ class UserController {
 
     const usersRepository = new UsersRepository()
     const hashProvider = new BcryptHashAdapter()
-    const createUser = new CreateUserService(usersRepository, hashProvider)
+    const emailProvider = new EmailValidatorAdapter()
+    const createUser = new CreateUserService(usersRepository, hashProvider, emailProvider)
 
     await createUser.execute({ name, email, password })
 
