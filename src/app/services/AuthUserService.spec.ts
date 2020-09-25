@@ -1,3 +1,4 @@
+import AppError from '../errors/AppError'
 import removePassword from '../utils/removePassword'
 import AuthUserService from './AuthUserService'
 import CreateUserService from './CreateUserService'
@@ -8,6 +9,11 @@ import FakeUsersRepository from './fakes/makeUsersRepository'
 
 const makeFakeAccount = () => ({
   name: 'any_name',
+  email: 'any_email@mail.com',
+  password: 'any_password'
+})
+
+const makeFakeAuthenticate = () => ({
   email: 'any_email@mail.com',
   password: 'any_password'
 })
@@ -24,12 +30,19 @@ describe('AuthUserService', () => {
 
     const user = await sutCreate.execute(makeFakeAccount())
 
-    const httpResponse = await sut.execute({
-      email: 'any_email@mail.com',
-      password: 'any_password'
-    })
+    const httpResponse = await sut.execute(makeFakeAuthenticate())
 
     expect(httpResponse).toHaveProperty('token')
     expect(httpResponse.user).toEqual(removePassword(user))
+  })
+
+  test('Should be able to return error with non existing user', async () => {
+    const usersRepository = new FakeUsersRepository()
+    const hashProvider = new HashStub()
+    const tokenProvider = new TokenStub()
+
+    const sut = new AuthUserService(usersRepository, hashProvider, tokenProvider)
+
+    await expect(sut.execute(makeFakeAuthenticate())).rejects.toBeInstanceOf(AppError)
   })
 })
