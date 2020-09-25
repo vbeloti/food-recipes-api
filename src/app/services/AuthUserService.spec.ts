@@ -15,7 +15,7 @@ const makeFakeAccount = () => ({
 
 const makeFakeAuthenticate = () => ({
   email: 'any_email@mail.com',
-  password: 'any_password'
+  password: 'password_hash'
 })
 
 describe('AuthUserService', () => {
@@ -44,5 +44,22 @@ describe('AuthUserService', () => {
     const sut = new AuthUserService(usersRepository, hashProvider, tokenProvider)
 
     await expect(sut.execute(makeFakeAuthenticate())).rejects.toBeInstanceOf(AppError)
+  })
+
+  test('should not be to return error with invalid password', async () => {
+    const usersRepository = new FakeUsersRepository()
+    const hashProvider = new HashStub()
+    const tokenProvider = new TokenStub()
+    const emailProvider = new EmailStub()
+
+    const sutAuth = new AuthUserService(usersRepository, hashProvider, tokenProvider)
+    const sutCreate = new CreateUserService(usersRepository, hashProvider, emailProvider)
+
+    await sutCreate.execute(makeFakeAccount())
+
+    await expect(sutAuth.execute({
+      email: 'any_email@mail.com',
+      password: 'any_password'
+    })).rejects.toBeInstanceOf(AppError)
   })
 })

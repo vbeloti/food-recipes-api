@@ -6,7 +6,7 @@ class HashStub implements IHashProvider {
   }
 
   async compareHash (payload: string, hashed: string): Promise<boolean> {
-    return new Promise(resolve => resolve(true))
+    return new Promise(resolve => resolve(payload === hashed))
   }
 }
 
