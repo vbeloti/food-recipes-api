@@ -46,7 +46,7 @@ describe('AuthUserService', () => {
     await expect(sut.execute(makeFakeAuthenticate())).rejects.toBeInstanceOf(AppError)
   })
 
-  test('should not be to return error with invalid password', async () => {
+  test('Should be able to return error with invalid password', async () => {
     const usersRepository = new FakeUsersRepository()
     const hashProvider = new HashStub()
     const tokenProvider = new TokenStub()

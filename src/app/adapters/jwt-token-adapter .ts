@@ -2,7 +2,7 @@ import { sign, verify } from 'jsonwebtoken'
 import ITokenProvider from '../providers/ITokenProvider'
 
 export default class JwtTokenAdapter implements ITokenProvider {
-  public async generateToken (payload: object, secret: string, expiresIn: object): Promise<string> {
+  public async generateToken (payload: string | object, secret: string, expiresIn: object): Promise<string> {
     return sign(payload, secret, expiresIn)
   }
 
