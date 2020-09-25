@@ -7,7 +7,6 @@ import IUsersRepository from '../repositories/IUsersRepository'
 import removePassword from '../utils/removePassword'
 
 interface IRequest {
-  name: string;
   email: string;
   password: string;
 }
@@ -20,7 +19,7 @@ interface IResponse {
 class AuthUserService {
   constructor (private usersRepository: IUsersRepository, private hashProvider: IHashProvider, private tokenProvider: ITokenProvider) {}
 
-  public async execute ({ name, email, password }: IRequest): Promise<IResponse> {
+  public async execute ({ email, password }: IRequest): Promise<IResponse> {
     const user = await this.usersRepository.findByEmail(email)
 
     if (!user) {
