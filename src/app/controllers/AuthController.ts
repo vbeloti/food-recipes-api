@@ -1,11 +1,11 @@
 import { Request, Response } from 'express'
 import BcryptAdapter from '../adapters/bcrypt-hash-adapter'
-import JwtTokenAdapter from '../adapters/jwt-token-adapter '
+import JwtTokenAdapter from '../adapters/jwt-token-adapter'
 import UsersRepository from '../repositories/UsersRepository'
 import AuthUserService from '../services/AuthUserService'
 
 class AuthController {
-  async create (req: Request, res: Response) {
+  async store (req: Request, res: Response) {
     const { email, password } = req.body
 
     const usersRepository = new UsersRepository()
@@ -19,4 +19,4 @@ class AuthController {
   }
 }
 
-export default new AuthController()
+export default AuthController

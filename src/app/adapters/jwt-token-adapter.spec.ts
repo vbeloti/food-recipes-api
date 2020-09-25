@@ -1,4 +1,4 @@
-import JwtTokenAdapter from './jwt-token-adapter '
+import JwtTokenAdapter from './jwt-token-adapter'
 
 describe('JwtTokenAdapter', () => {
   test('Should be able to return a token', async () => {
