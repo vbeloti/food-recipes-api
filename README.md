@@ -24,58 +24,41 @@ Para configurar o banco de dados voce precisará localizar o arquivo ormconfig.j
 
 ** Clonando o Repositório **
 
-`` `
 $ git clone https://github.com/steniowagner/mindcast-server
 
-$ cd mindcast-server
-`` `
+$ cd food-recipes-api
 
 ** Instalando dependências **
 
-`` `
 $ yarn
-`` `
 
 _ou_
 
-`` `
 $ npm install
-`` `
 
 ** Rodando as migrações **
 
-`` `
 $ yarn typeorm migration:run
-`` `
 
 _ou_
 
-`` `
 $ npm run typeorm migration:run
 
 ### Executando o ambiente de desenvolvimento
 
-`` `
 $ yarn dev
-`` `
 
 _ou_
 
-`` `
 $ npm run dev
-`` `
 
 ### Executando os testes
 
-`` `
 $ yarn test
-`` `
 
 _ou_
 
-`` `
 $ npm run test
-`` `
 
 ## Recursos
 
