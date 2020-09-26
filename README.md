@@ -24,7 +24,7 @@ Para configurar o banco de dados voce precisará localizar o arquivo ormconfig.j
 
 ** Clonando o Repositório **
 
-$ git clone https://github.com/steniowagner/mindcast-server
+$ git clone https://github.com/vbeloti/food-recipes-api
 
 $ cd food-recipes-api
 
