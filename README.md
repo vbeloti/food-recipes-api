@@ -16,8 +16,9 @@ Esta é uma API RESTful construída com Typescript + NodeJS + Express + Postgres
 ### Pré-requisitos
 
 Para executar este projeto no modo de desenvolvimento, você precisará ter um ambiente básico com o NodeJS 14+ instalado.
-Para usar o banco de dados, você precisará ter o Postgress instalado e em execução em sua máquina na porta 5433 ou configura-lá
-Para configurar o banco de dados voce precisará localizar o arquivo ormconfig.json e mudar a porta ("port"), o nome de usuário ("username"), a senha("password") e o banco de dados("database").
+Para usar o banco de dados, você precisará ter o Postgress instalado e em execução em sua máquina na porta 5433 ou configura-lá.
+
+Para configurar o banco de dados voce precisará localizar o arquivo ormconfig.example.json alerá-lo para ormconfig.json e mudar a porta ("port"), o nome de usuário ("username"), a senha("password") e o banco de dados("database").
 
 
 ### Instalando
