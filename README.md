@@ -1,7 +1,5 @@
 [![Coverage Status](https://coveralls.io/repos/github/vbeloti/food-recipes-api/badge.svg?branch=master)](https://coveralls.io/github/vbeloti/food-recipes-api?branch=master)
-
 [![Build Status](https://travis-ci.org/vbeloti/food-recipes-api.svg?branch=master)](https://travis-ci.org/vbeloti/food-recipes-api)
-
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
 # Food Recipes Api
