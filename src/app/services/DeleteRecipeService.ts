@@ -16,9 +16,7 @@ class DeleteRecipeService {
       throw new AppError('This recipes does not exists')
     }
 
-    if (recipe.image) {
-      await this.storageProvider.deleteFile(recipe.image)
-    }
+    await this.storageProvider.deleteFile(recipe.image)
 
     await this.recipesRepository.delete(recipe_id)
   }

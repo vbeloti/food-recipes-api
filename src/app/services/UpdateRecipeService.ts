@@ -36,9 +36,7 @@ class UpdateRecipeService {
       }
     })
 
-    if (recipe.image) {
-      await this.storageProvider.deleteFile(recipe.image)
-    }
+    await this.storageProvider.deleteFile(recipe.image)
 
     recipe.name = name
     recipe.image = image
