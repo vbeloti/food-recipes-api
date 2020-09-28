@@ -6,7 +6,7 @@ import AppError from '../../errors/AppError'
 class FakeRecipesRepository implements IRecipesRepository {
   private recipes: Recipe[] = [];
 
-  public async findById (id: string): Promise<Recipe | undefined | AppError> {
+  public async findById (id: string): Promise<Recipe | undefined> {
     const findRecipe = this.recipes.find(recipe => recipe.id === id)
     return findRecipe
   }
