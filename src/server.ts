@@ -6,11 +6,13 @@ import 'express-async-errors'
 import './database/connect'
 import routes from './routes'
 import AppError from './app/errors/AppError'
+import { tmpFolder } from './config/upload'
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
+app.use('/files', express.static(tmpFolder))
 app.use(routes)
 
 app.use((err: Error, req: Request, res: Response, _: NextFunction) => {

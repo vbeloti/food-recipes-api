@@ -73,6 +73,7 @@ $ npm run test
 | `POST /auth`               | Faz a autenticação do usuário retornando um JWT                       |
 | `POST /recipes`            | Cria uma nova receita                                                 |
 | `PUT /recipes/:recipeId`   | Atualizar uma receita                                                 |
+| `GET /recipes/:recipeId`   | Retorna uma receita                                                   |
 | `DELETE /recipes/:recipeId`| Apaga uma receita                                                     |
 | `GET /recipes`             | retorna uma lista de todas as receitas                                |
 
