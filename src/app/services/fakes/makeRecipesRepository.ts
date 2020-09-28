@@ -1,7 +1,6 @@
 import IRecipesRepository from '../../repositories/IRecipesRepository'
 import Recipe from '../../models/Recipe'
 import ICreateRecipe from '../../providers/ICreateRecipe'
-import AppError from '../../errors/AppError'
 
 class FakeRecipesRepository implements IRecipesRepository {
   private recipes: Recipe[] = [];

@@ -1,4 +1,3 @@
-import AppError from '../errors/AppError'
 import Recipe from '../models/Recipe'
 import ICreateRecipe from '../providers/ICreateRecipe'
 
