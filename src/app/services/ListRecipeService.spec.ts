@@ -2,7 +2,7 @@ import AppError from '../errors/AppError'
 import FakeRecipesRepository from './fakes/makeRecipesRepository'
 import ListRecipeService from './ListRecipeService'
 
-describe('ListRecipeService.spec', () => {
+describe('ListRecipeService', () => {
   test('Should be able to return recipes', async () => {
     const recipesRepository = new FakeRecipesRepository()
     const sut = new ListRecipeService(recipesRepository)

@@ -4,6 +4,7 @@ import RecipesRepository from '../repositories/RecipesRepository'
 import CreateRecipeService from '../services/CreateRecipeService'
 import DeleteRecipeService from '../services/DeleteRecipeService'
 import ListRecipeService from '../services/ListRecipeService'
+import ShowRecipeService from '../services/ShowRecipeService'
 import UpdateRecipeService from '../services/UpdateRecipeService'
 
 class RecipeController {
@@ -83,6 +84,17 @@ class RecipeController {
     })
 
     return res.json({ message: 'Recipe has been deleted' })
+  }
+
+  async show (req: Request, res: Response) {
+    const { recipeId: recipe_id } = req.params
+
+    const recipesRepository = new RecipesRepository()
+    const showRecipe = new ShowRecipeService(recipesRepository)
+
+    const recipes = await showRecipe.execute(recipe_id)
+
+    return res.json(recipes)
   }
 }
 

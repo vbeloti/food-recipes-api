@@ -1,8 +1,9 @@
+import AppError from '../errors/AppError'
 import Recipe from '../models/Recipe'
 import ICreateRecipe from '../providers/ICreateRecipe'
 
 export default interface IRecipesRepository {
-  findById (id: string): Promise<Recipe | undefined>;
+  findById (id: string): Promise<Recipe | undefined | AppError>;
   create(data: ICreateRecipe): Promise<Recipe>;
   findAll(): Promise<Recipe[]>;
   save(recipe: Recipe): Promise<Recipe>;

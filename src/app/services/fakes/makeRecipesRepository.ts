@@ -1,11 +1,12 @@
 import IRecipesRepository from '../../repositories/IRecipesRepository'
 import Recipe from '../../models/Recipe'
 import ICreateRecipe from '../../providers/ICreateRecipe'
+import AppError from '../../errors/AppError'
 
 class FakeRecipesRepository implements IRecipesRepository {
   private recipes: Recipe[] = [];
 
-  public async findById (id: string): Promise<Recipe | undefined> {
+  public async findById (id: string): Promise<Recipe | undefined | AppError> {
     const findRecipe = this.recipes.find(recipe => recipe.id === id)
     return findRecipe
   }
