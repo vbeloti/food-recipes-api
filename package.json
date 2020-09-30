@@ -4,7 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf dist && tsc",
     "start": "ts-node src/index.ts",
     "dev": "ts-node-dev src/index.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
