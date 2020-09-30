@@ -88,25 +88,51 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 
 - **Essa é uma rota para verificar se a API está funcionando**
 
-> https://food-recipes-api-1.herokuapp.com/ ou /
+> / ou https://food-recipes-api-1.herokuapp.com/ 
 
 | Test              |                                                                       |
 |:------------------|:----------------------------------------------------------------------|
-| Recurso           =                         **/**                                         |
-| Metodo            =                          **GET**                                      |
-| Parametros        =                         ****                                          |
-| Resposta Sucesso  = **Código:** 200 **Conteúdo:** `{ message:  "API is Working!!! 🔥" }`  | 
-| Resposta do erro  =  **Code:** 500 **Content:** `{ error:  Internal server error }        |
+| Recurso           |                         **/**                                         |
+| Metodo            |                         **GET**                                       |
+| Parametros        |                         ****                                          |
+| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ message:  "API is Working!!! 🔥" }`  | 
+| Resposta do erro  |  **Code:** 500 **Content:** `{ error:  Internal server error }`       |
 
 ### Rota Usuários
 
-> https://food-recipes-api-1.herokuapp.com/users ou /users
+> /users ou https://food-recipes-api-1.herokuapp.com/users
 
-| Test              |                                                                      |
+| Teste             |                                                                      |
 |:------------------|:---------------------------------------------------------------------|
-| Recurso           =                         **/**                                        |
-| Metodo            =                          **POST**                                    |
-| Parametros        =                         ****                                         |
-| Resposta Sucesso  = **Código:** 200 **Conteúdo:** `{ message:  "API is Working!!! 🔥" }` | 
-| Resposta do erro  =  **Code:** 500 **Content:** `{ error:  Internal server error }       |
-| Envio             = { "name": "name", "email": "email", "password": "password" }         |
+| Recurso           |                         **/**                                        |
+| Metodo            |                         **POST**                                     |
+| Parametros        |                         ****                                         |
+| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ message:  "User has been created }` | 
+| Resposta do erro  |  **Code:** 401 **Content:** `{ Email address already used }`      |
+| Envio             | { "name": "name", "email": "email", "password": "password" }         |
+
+### Rota Autenticação
+
+> /auth ou https://food-recipes-api-1.herokuapp.com/auth
+
+| Autenticação      |                                                                                                                                                                       |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Recurso           |                         **/**                                                                                                                                         |
+| Metodo            |                         **POST**                                                                                                                                      |
+| Parametros        |                         ****                                                                                                                                          |
+| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{"user": { "id": "id", "name": "name", "email": "email", "created_at": "created_at", "updated_at": "updated_at" }, "token": "token" }` | 
+| Resposta do erro  |  **Code:** 500 **Content:** `{ error:  Internal server error }`                                                                                                       |
+| Envio             | { "email": "email", "password": "password" }                                                                                                                          |
+
+### Rota Receitas
+
+> /recipes ou https://food-recipes-api-1.herokuapp.com/recipes
+
+| Autenticação      |                                                                                                                                                                       |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Recurso           |                         **/**                                                                                                                                         |
+| Metodo            |                         **POST**                                                                                                                                      |
+| Parametros        |                         ****                                                                                                                                          |
+| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", "id": "id", "created_at": "created_at", "updated_at": "updated_at"}`                                                                                                                        | 
+| Resposta do erro  |  **Code:** 500 **Content:** `{ error:  Internal server error }`                                                                                                       |
+| Envio             | MULTIPART FORM image=[FILE=image], name=name, ingredients=ingredients, mode_prepare=mode_prepare, time=time}         |
