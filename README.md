@@ -6,15 +6,17 @@
 
 - [Food-recipes-api]
     - [Resumo](#resumo)
+    - [Link Demonstração API](#link-demonstracao-api)
     - [Pré Requisitos](#pre-requisitos)
     - [Instalando](#instalando)
-
-<!-- ## Link -->
-
 
 ## Resumo
 
 Esta é uma API RESTful construída com Typescript + NodeJS + Express + Postgres que recebe todos os dados relacionados com receitas e fornece ao cliente todos esses dados através de uma API REST
+
+## Link Demonstração API
+
+<a href="https://food-recipes-api-1.herokuapp.com/">https://food-recipes-api-1.herokuapp.com/</a>
 
 
 ### Pré-requisitos
