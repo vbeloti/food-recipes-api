@@ -9,6 +9,14 @@
     - [Link Demonstração API](#link-demonstracao-api)
     - [Pré Requisitos](#pre-requisitos)
     - [Instalando](#instalando)
+    - [Executando o ambiente de desenvolvimento](#executando-o-ambiente-de-desenvolvimento)
+    - [Executando os testes](#executando-os-testes)
+    - [Recursos](#recursos)
+    - [Rotas](#rotas)
+    - [Rota teste](#rota-teste)
+    - [Rota Usuários](#rota-usuários)
+    - [Rota Autenticação](#rota-autenticacao)
+    - [Rota Receitas](#rota-receitas)
 
 ## Resumo
 
@@ -100,11 +108,13 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 
 ### Rota Usuários
 
+- **Essa é uma rota para criar um usuário**
+
 > /users ou https://food-recipes-api-1.herokuapp.com/users
 
 | Teste             |                                                                      |
 |:------------------|:---------------------------------------------------------------------|
-| Recurso           |                         **/**                                        |
+| Recurso           |                         **/users**                                   |
 | Metodo            |                         **POST**                                     |
 | Parametros        |                         ****                                         |
 | Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ message:  "User has been created }` | 
@@ -113,11 +123,13 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 
 ### Rota Autenticação
 
+- **Essa é uma rota para autenticar um usuário**
+
 > /auth ou https://food-recipes-api-1.herokuapp.com/auth
 
 | Autenticação      |                                                                                                                                                                       |
 |:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Recurso           |                         **/**                                                                                                                                         |
+| Recurso           |                         **/auth**                                                                                                                                     |
 | Metodo            |                         **POST**                                                                                                                                      |
 | Parametros        |                         ****                                                                                                                                          |
 | Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{"user": { "id": "id", "name": "name", "email": "email", "created_at": "created_at", "updated_at": "updated_at" }, "token": "token" }` | 
@@ -126,13 +138,68 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 
 ### Rota Receitas
 
+- **Essa é uma rota para criar uma receita**
+
 > /recipes ou https://food-recipes-api-1.herokuapp.com/recipes
 
-| Autenticação      |                                                                                                                                                                       |
+| Receitas          |                                                                                                                                                                       |
 |:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Recurso           |                         **/**                                                                                                                                         |
+| Recurso           |                         **/recipes**                                                                                                                                  |
 | Metodo            |                         **POST**                                                                                                                                      |
 | Parametros        |                         ****                                                                                                                                          |
 | Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", "id": "id", "created_at": "created_at", "updated_at": "updated_at"}`                                                                                                                        | 
 | Resposta do erro  |  **Code:** 500 **Content:** `{ error:  Internal server error }`                                                                                                       |
-| Envio             | MULTIPART FORM image=[FILE=image], name=name, ingredients=ingredients, mode_prepare=mode_prepare, time=time}         |
+| Envio             | MULTIPART FORM image=[FILE=image], name=name, ingredients=ingredients, mode_prepare=mode_prepare, time=time}                                                          |
+
+
+- **Essa é uma rota para editar uma receita**
+
+> /recipes ou https://food-recipes-api-1.herokuapp.com/recipes
+
+| Receitas          |                                                                                                                                                                       |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Recurso           |                         **recipes/:recipeId**                                                                                                                         |
+| Metodo            |                         **PUT**                                                                                                                                       |
+| Parametros        |                         **:recipeId**                                                                                                                                 |
+| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", "id": "id", "created_at": "created_at", "updated_at": "updated_at"}`                                                                                                                        | 
+| Resposta do erro  |  **Code:** 500 **Content:** `{ message:  Internal server error }`                                                                                                       |
+| Envio             | MULTIPART FORM image=[FILE=image], name=name, ingredients=ingredients, mode_prepare=mode_prepare, time=time}                                                          |
+
+- **Essa é uma rota para retornar uma receita**
+
+> /recipes ou https://food-recipes-api-1.herokuapp.com/recipes
+
+| Receitas          |                                                                                                                                                                       |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Recurso           |                         **recipes/:recipeId**                                                                                                                         |
+| Metodo            |                         **GET**                                                                                                                                       |
+| Parametros        |                         **:recipeId**                                                                                                                                 |
+| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", "id": "id", "created_at": "created_at", "updated_at": "updated_at"}`                                                                                                                        | 
+| Resposta do erro  |  **Code:** 500 **Content:** `{ message:  Internal server error }`                                                                                                     |
+| Envio             | MULTIPART FORM image=[FILE=image], name=name, ingredients=ingredients, mode_prepare=mode_prepare, time=time}                                                          |
+
+- **Essa é uma rota para apagar uma receita**
+
+> /recipes ou https://food-recipes-api-1.herokuapp.com/recipes
+
+| Receitas          |                                                                                                                  |
+|:------------------|:-----------------------------------------------------------------------------------------------------------------|
+| Recurso           |                         **recipes/:recipeId**                                                                    |
+| Metodo            |                         **DELETE**                                                                               |
+| Parametros        |                         **:recipeId**                                                                            |
+| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ "message": "Recipe has been deleted"}                                           | 
+| Resposta do erro  |  **Code:** 500 **Content:** `{ message:  Internal server error }`                                                |
+
+- **Essa é uma rota para retornar todas as receitas**
+
+> /recipes ou https://food-recipes-api-1.herokuapp.com/recipes
+
+| Receitas          |                                                                                                                                                                        |
+|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Recurso           |                         **recipes**                                                                                                                                    |
+| Metodo            |                         **GET**                                                                                                                                        |
+| Parametros        |                         ****                                                                                                                                           |
+| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `[{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", "id": "id", "created_at": "created_at", "updated_at": "updated_at"}]`                                                                                                                        | 
+| Resposta do erro  |  **Code:** 500 **Content:** `{ message:  Internal server error }`                                                                                                      |
+
+
