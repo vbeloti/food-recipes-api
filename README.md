@@ -71,6 +71,7 @@ $ npm run test
 
 | Recurso                    | Descrição                                                             |
 |:--------------             |:----------------------------------------------------------------------|
+| `GET /      `              | Retorna se a API está funcionando                                     |
 | `POST /users`              | Cria um novo usuário                                                  |
 | `POST /auth`               | Faz a autenticação do usuário retornando um JWT                       |
 | `POST /recipes`            | Cria uma nova receita                                                 |
@@ -89,9 +90,21 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 
 > https://food-recipes-api-1.herokuapp.com/ ou /
 
+|:------------------=:----------------------------------------------------------------------|
 | Recurso           =                         **/**                                         |
-| Metodos           =                                                                       |
-| Parametros        =                                                                       |
-| Parametros URL    =                                                                       |
+| Metodo           =                          **GET**                                       |
+| Parametros        =                         ****                                          |
 | Resposta Sucesso  = **Código:** 200 **Conteúdo:** `{ message:  "API is Working!!! 🔥" }`  | 
 | Resposta do erro  =  **Code:** 500 **Content:** `{ error:  Internal server error }        |
+
+### Rota Usuários
+
+> https://food-recipes-api-1.herokuapp.com/users ou /users
+
+|:------------------=:---------------------------------------------------------------------|
+| Recurso           =                         **/**                                        |
+| Metodo            =                          **POST**                                    |
+| Parametros        =                         ****                                         |
+| Resposta Sucesso  = **Código:** 200 **Conteúdo:** `{ message:  "API is Working!!! 🔥" }` | 
+| Resposta do erro  =  **Code:** 500 **Content:** `{ error:  Internal server error }       |
+| Envio             = { "name": "name", "email": "email", "password": "password" }         |
