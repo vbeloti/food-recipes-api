@@ -15,7 +15,7 @@ const upload = multer(uploadCOnfig)
 
 const router = Router()
 
-router.post('/', (req, res) => {
+router.get('/', (req, res) => {
   res.json({ message: 'API is Working!!! 🔥' })
 })
 router.post('/users', userController.store)
