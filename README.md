@@ -112,14 +112,14 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 
 > /users ou https://food-recipes-api-1.herokuapp.com/users
 
-| Teste             |                                                                      |
-|:------------------|:---------------------------------------------------------------------|
-| Recurso           |                         **/users**                                   |
-| Metodo            |                         **POST**                                     |
-| Parametros        |                         ****                                         |
-| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ message:  "User has been created }` | 
-| Resposta do erro  |  **Code:** 401 **Content:** `{ Email address already used }`      |
-| Envio             | { "name": "name", "email": "email", "password": "password" }         |
+| Teste             |                                                                            |
+|:------------------|:---------------------------------------------------------------------------|
+| Recurso           |                         **/users**                                         |
+| Metodo            |                         **POST**                                           |
+| Parametros        |                         ****                                               |
+| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ "message":  "User has been created }`     | 
+| Resposta do erro  |  **Code:** 401 **Content:** `{ "message": "Email address already used" }`  |
+| Envio             | { "name": "name", "email": "email", "password": "password" }               |
 
 ### Rota Autenticação
 
@@ -133,7 +133,7 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 | Metodo            |                         **POST**                                                                                                                                      |
 | Parametros        |                         ****                                                                                                                                          |
 | Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{"user": { "id": "id", "name": "name", "email": "email", "created_at": "created_at", "updated_at": "updated_at" }, "token": "token" }` | 
-| Resposta do erro  |  **Code:** 500 **Content:** `{ error:  Internal server error }`                                                                                                       |
+| Resposta do erro  |  **Code:** 401 **Content:** `{ "message":  "Incorrect email/password combination" }`                                                                                  |
 | Envio             | { "email": "email", "password": "password" }                                                                                                                          |
 
 ### Rota Receitas
@@ -148,7 +148,7 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 | Metodo            |                         **POST**                                                                                                                                      |
 | Parametros        |                         ****                                                                                                                                          |
 | Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", "id": "id", "created_at": "created_at", "updated_at": "updated_at"}`                                                                                                                        | 
-| Resposta do erro  |  **Code:** 500 **Content:** `{ error:  Internal server error }`                                                                                                       |
+| Resposta do erro  |  **Code:** 500 **Content:** `{ "error":  "Internal server error" }`                                                                                                   |
 | Envio             | MULTIPART FORM image=[FILE=image], name=name, ingredients=ingredients, mode_prepare=mode_prepare, time=time}                                                          |
 
 
@@ -161,8 +161,8 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 | Recurso           |                         **recipes/:recipeId**                                                                                                                         |
 | Metodo            |                         **PUT**                                                                                                                                       |
 | Parametros        |                         **:recipeId**                                                                                                                                 |
-| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", "id": "id", "created_at": "created_at", "updated_at": "updated_at"}`                                                                                                                        | 
-| Resposta do erro  |  **Code:** 500 **Content:** `{ message:  Internal server error }`                                                                                                       |
+| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", "id": "id", "created_at": "created_at", "updated_at": "updated_at"}`                                                                                                                                                  | 
+| Resposta do erro  |  **Code:** 400 **Content:** `{ message:  "This recipes does not exists" }`                                                                                            |
 | Envio             | MULTIPART FORM image=[FILE=image], name=name, ingredients=ingredients, mode_prepare=mode_prepare, time=time}                                                          |
 
 - **Essa é uma rota para retornar uma receita**
@@ -174,8 +174,8 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 | Recurso           |                         **recipes/:recipeId**                                                                                                                         |
 | Metodo            |                         **GET**                                                                                                                                       |
 | Parametros        |                         **:recipeId**                                                                                                                                 |
-| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", "id": "id", "created_at": "created_at", "updated_at": "updated_at"}`                                                                                                                        | 
-| Resposta do erro  |  **Code:** 500 **Content:** `{ message:  Internal server error }`                                                                                                     |
+| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", "id": "id", "created_at": "created_at", "updated_at": "updated_at"}`                                                                                                                                                  | 
+| Resposta do erro  |  **Code:** 400 **Content:** `{ "message":  "This recipe does not exists" }`                                                                                           |
 | Envio             | MULTIPART FORM image=[FILE=image], name=name, ingredients=ingredients, mode_prepare=mode_prepare, time=time}                                                          |
 
 - **Essa é uma rota para apagar uma receita**
@@ -188,7 +188,7 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 | Metodo            |                         **DELETE**                                                                               |
 | Parametros        |                         **:recipeId**                                                                            |
 | Resposta Sucesso  | **Código:** 200 **Conteúdo:** `{ "message": "Recipe has been deleted"}                                           | 
-| Resposta do erro  |  **Code:** 500 **Content:** `{ message:  Internal server error }`                                                |
+| Resposta do erro  |  **Code:** 400 **Content:** `{ "message":  "This recipes does not exists" }`                                     |
 
 - **Essa é uma rota para retornar todas as receitas**
 
@@ -199,7 +199,8 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 | Recurso           |                         **recipes**                                                                                                                                    |
 | Metodo            |                         **GET**                                                                                                                                        |
 | Parametros        |                         ****                                                                                                                                           |
-| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `[{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", "id": "id", "created_at": "created_at", "updated_at": "updated_at"}]`                                                                                                                        | 
-| Resposta do erro  |  **Code:** 500 **Content:** `{ message:  Internal server error }`                                                                                                      |
+| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `[{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", 
+"id": "id", "created_at": "created_at", "updated_at": "updated_at"}]`                                                                                                                        | 
+| Resposta do erro  |  **Code:** 400 **Content:** `{ "message":  "Does not exists recipes registered"  }`                                                                                    |
 
 
