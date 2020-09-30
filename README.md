@@ -79,3 +79,16 @@ $ npm run test
 | `DELETE /recipes/:recipeId`| Apaga uma receita                                                     |
 | `GET /recipes`             | retorna uma lista de todas as receitas                                |
 
+## Rotas
+
+Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com/">https://food-recipes-api-1.herokuapp.com/</a> ou http://localhost:3333/
+
+### Rota teste
+
+- **Essa é uma rota para verificar se a API está funcionando**
+
+> https://food-recipes-api-1.herokuapp.com/ ou /
+
+| ENDPOINT | Method | Params | URL Params | Success Response                                                              | Error Response |--|--|--|--|--|--|
+|     /    | `GET`  | -      | -          | **Código:** 200 **Conteúdo:** `{ message:  "API is Working!!! 🔥"         }`  |  **Code:** 500 **Content:** `{ error:  Internal server error }`|
+

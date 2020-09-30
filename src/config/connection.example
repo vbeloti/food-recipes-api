@@ -1,21 +1,21 @@
 import { join } from 'path'
 import { ConnectionOptions } from 'typeorm'
 
-const config = {
-  host: process.env.HOST_DB,
-  user: process.env.USERNAME_DB,
-  port: process.env.PORT_DB,
-  password: process.env.PASSWORD_DB,
-  database: process.env.DATABASE_DB
+const configDB = {
+  host: process.env.HOST_DB || 'localhost',
+  user: process.env.USERNAME_DB || 'user',
+  port: process.env.PORT_DB || 5433,
+  password: process.env.PASSWORD_DB || 'password',
+  database: process.env.DATABASE_DB || 'database'
 }
 
 const connectionOptions: ConnectionOptions = {
   type: 'postgres',
-  host: config.host || 'localhost',
-  port: 5433,
-  username: config.user || 'USERNAME',
-  password: config.password || 'PASSWORD',
-  database: config.database || 'DATABASE',
+  host: configDB.host,
+  port: configDB.port as number | undefined,
+  username: configDB.user,
+  password: configDB.password,
+  database: configDB.database,
   entities: [
     join(__dirname, '../app/models/*{.ts,.js}')
   ],
@@ -27,4 +27,4 @@ const connectionOptions: ConnectionOptions = {
   }
 }
 
-export = connectionOptions
+export { connectionOptions, configDB }
