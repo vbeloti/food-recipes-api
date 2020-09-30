@@ -90,9 +90,10 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 
 > https://food-recipes-api-1.herokuapp.com/ ou /
 
-|:------------------=:----------------------------------------------------------------------|
+| Test              |                                                                       |
+|:------------------|:----------------------------------------------------------------------|
 | Recurso           =                         **/**                                         |
-| Metodo           =                          **GET**                                       |
+| Metodo            =                          **GET**                                      |
 | Parametros        =                         ****                                          |
 | Resposta Sucesso  = **Código:** 200 **Conteúdo:** `{ message:  "API is Working!!! 🔥" }`  | 
 | Resposta do erro  =  **Code:** 500 **Content:** `{ error:  Internal server error }        |
@@ -101,7 +102,8 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 
 > https://food-recipes-api-1.herokuapp.com/users ou /users
 
-|:------------------=:---------------------------------------------------------------------|
+| Test              |                                                                      |
+|:------------------|:---------------------------------------------------------------------|
 | Recurso           =                         **/**                                        |
 | Metodo            =                          **POST**                                    |
 | Parametros        =                         ****                                         |
