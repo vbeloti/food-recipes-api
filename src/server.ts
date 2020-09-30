@@ -7,6 +7,9 @@ import './database/connect'
 import routes from './routes'
 import AppError from './app/errors/AppError'
 import { tmpFolder } from './config/upload'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const app = express()
 

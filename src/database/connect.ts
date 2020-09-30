@@ -1,3 +1,4 @@
 import { createConnection } from 'typeorm'
+import connection from '../config/connection'
 
-createConnection().then(() => console.log('Succesfully connected with database'))
+createConnection(connection).then(() => console.log('Succesfully connected with database'))
