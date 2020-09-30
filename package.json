@@ -34,8 +34,7 @@
     "rimraf": "^3.0.2",
     "supertest": "^5.0.0",
     "ts-jest": "^26.4.0",
-    "ts-node-dev": "^1.0.0-pre.63",
-    "typescript": "^4.0.3"
+    "ts-node-dev": "^1.0.0-pre.63"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -48,6 +47,7 @@
     "reflect-metadata": "^0.1.13",
     "ts-node": "^9.0.0",
     "typeorm": "^0.2.26",
-    "validator": "^13.1.17"
+    "validator": "^13.1.17",
+    "typescript": "^4.0.3"
   }
 }
