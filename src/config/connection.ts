@@ -1,3 +1,4 @@
+import { join } from 'path'
 import { ConnectionOptions } from 'typeorm'
 
 const configDB = {
@@ -5,7 +6,7 @@ const configDB = {
   user: process.env.USERNAME_DB || 'postgres',
   port: process.env.PORT_DB || 5433,
   password: process.env.PASSWORD_DB || 'docker',
-  database: process.env.DATABASE_DB || 'food-recipes-api2'
+  database: process.env.DATABASE_DB || 'food-recipes-api'
 }
 
 const connectionOptions: ConnectionOptions = {
@@ -16,10 +17,10 @@ const connectionOptions: ConnectionOptions = {
   password: configDB.password,
   database: configDB.database,
   entities: [
-    '../app/models/*{.ts,.js}'
+    join(__dirname, '../app/models/*{.ts,.js}')
   ],
   migrations: [
-    '../database/migrations/*{.ts,.js}'
+    join(__dirname, '../database/migrations/*{.ts,.js}')
   ],
   cli: {
     migrationsDir: '../database/migrations'
