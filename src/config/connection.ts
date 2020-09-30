@@ -6,7 +6,7 @@ const configDB = {
   user: process.env.USERNAME_DB || 'postgres',
   port: process.env.PORT_DB || 5433,
   password: process.env.PASSWORD_DB || 'docker',
-  database: process.env.DATABASE_DB || 'food-recipes-api'
+  database: process.env.DATABASE_DB || 'food-recipes-api2'
 }
 
 const connectionOptions: ConnectionOptions = {
