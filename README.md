@@ -199,8 +199,7 @@ Você poderá testar as rotas: <a href="https://food-recipes-api-1.herokuapp.com
 | Recurso           |                         **recipes**                                                                                                                                    |
 | Metodo            |                         **GET**                                                                                                                                        |
 | Parametros        |                         ****                                                                                                                                           |
-| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `[{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", 
-"id": "id", "created_at": "created_at", "updated_at": "updated_at"}]`                                                                                                                        | 
+| Resposta Sucesso  | **Código:** 200 **Conteúdo:** `[{ "user_id": "user_id", "name": "name", "image": "image", "ingredients": "ingredients", "mode_prepare": "mode_prepare", "time": "time", "id": "id", "created_at": "created_at", "updated_at": "updated_at"}]`                                                                                                                                                  | 
 | Resposta do erro  |  **Code:** 400 **Content:** `{ "message":  "Does not exists recipes registered"  }`                                                                                    |
 
 
