@@ -54,7 +54,13 @@ class RecipeController {
       time
     } = req.body
 
-    const image = req.file.filename
+    const imageSec = req.body?.image
+
+    let image = req.file?.filename
+
+    if (!image) {
+      image = imageSec
+    }
 
     const recipesRepository = new RecipesRepository()
     const storageProvider = new DiskStorageAdapter()

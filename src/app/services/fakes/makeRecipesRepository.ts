@@ -32,7 +32,8 @@ class FakeRecipesRepository implements IRecipesRepository {
   }
 
   public async delete (id: string): Promise<void> {
-    this.recipes.find(recipe => recipe.id !== id)
+    const index = this.recipes.findIndex(recipe => recipe.id !== id)
+    this.recipes.splice(index, 1)
   }
 }
 
