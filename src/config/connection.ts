@@ -1,4 +1,3 @@
-import { join } from 'path'
 import { ConnectionOptions } from 'typeorm'
 
 const configDB = {
@@ -17,10 +16,10 @@ const connectionOptions: ConnectionOptions = {
   password: configDB.password,
   database: configDB.database,
   entities: [
-    join(__dirname, '../app/models/*{.ts,.js}')
+    '../app/models/*{.ts,.js}'
   ],
   migrations: [
-    join(__dirname, '../database/migrations/*{.ts,.js}')
+    '../database/migrations/*{.ts,.js}'
   ],
   cli: {
     migrationsDir: '../database/migrations'
