@@ -1,4 +1,4 @@
-module.exports = {
+export = {
   type: process.env.TYPE_DB || 'TYPE',
   host: 'localhost',
   port: process.env.PORT_DB || 'PORT_NUMBER',

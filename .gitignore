@@ -112,6 +112,8 @@ ormconfig.ts
 
 temp/
 
+dist/
+
 
 tmp/*
 !tmp/.gitkeep
