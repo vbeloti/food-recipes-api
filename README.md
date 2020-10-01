@@ -34,6 +34,9 @@ Para usar o banco de dados, você precisará ter o Postgress instalado e em exec
 
 Para configurar o banco de dados voce precisará localizar o arquivo connection.example alerá-lo para connection.ts (src/config) e mudar a porta ("port"), o nome de usuário ("username"), a senha("password") e o banco de dados("database").
 
+Para configurar o upload das imagens existem duas opções
+1º utilizar o upload local e pra isso você deverá localizar o arquivo .env.example renomealo para .env e alterar STORAGE_TYPE para STORAGE_TYPE=local
+2º utilizar o Amazon s3 e pra isso você deverá ter um bucket criado e alterar as configurações no arquivo .env, (STORAGE_TYPE=s3) e adicionar as outras propriedades conforme o bucket criado na Amazon s3
 
 ### Instalando
 
