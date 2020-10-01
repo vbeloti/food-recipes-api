@@ -111,6 +111,7 @@ temp/
 
 dist/
 
+.env
 
 tmp/*
 !tmp/.gitkeep

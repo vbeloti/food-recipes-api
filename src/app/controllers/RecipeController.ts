@@ -1,4 +1,4 @@
-import { Request, Response } from 'express'
+import { Request, Response, Express } from 'express'
 import DiskStorageAdapter from '../adapters/disk-storage-adapter'
 import RecipesRepository from '../repositories/RecipesRepository'
 import CreateRecipeService from '../services/CreateRecipeService'
@@ -27,7 +27,14 @@ class RecipeController {
 
     const user_id = res.locals.userId
 
-    const image = req.file.filename
+    interface IFile extends Express.Multer.File {
+      key: string;
+      location: string;
+    }
+
+    const { key } = req.file as IFile
+
+    const image = req.file.filename || key
 
     const recipesRepository = new RecipesRepository()
     const createRecipe = new CreateRecipeService(recipesRepository)
@@ -54,9 +61,16 @@ class RecipeController {
       time
     } = req.body
 
+    interface IFile extends Express.Multer.File {
+      key: string;
+      location: string;
+    }
+
+    const { key } = req.file as IFile
+
     const imageSec = req.body?.image
 
-    let image = req.file?.filename
+    let image = req.file?.filename || key
 
     if (!image) {
       image = imageSec
