@@ -53,46 +53,6 @@ describe('UpdateRecipeService', () => {
     expect(recipe.image).toBe('updated_image')
   })
 
-  // test('Should be able to verify image is Equal to new image', async () => {
-  //   const recipesRepository = new FakeRecipesRepository()
-  //   const storageProvider = new StorageStub()
-  //   const sut = new UpdateRecipeService(recipesRepository, storageProvider)
-
-  //   const deleteFile = jest.spyOn(storageProvider, 'deleteFile')
-
-  //   const request = {
-  //     name: 'any_name',
-  //     user_id: 'any_id',
-  //     image: 'any_image',
-  //     ingredients: 'any_ingredients',
-  //     mode_prepare: 'any_mode_prepare',
-  //     time: 'any_time'
-  //   }
-
-  //   const recipe = await recipesRepository.create(request)
-
-  //   const fakeRecipe = {
-  //     recipe_id: recipe.id,
-  //     name: 'any_name',
-  //     user_id: 'any_id',
-  //     image: 'updated_image',
-  //     ingredients: 'any_ingredients',
-  //     mode_prepare: 'any_mode_prepare',
-  //     time: 'any_time'
-  //   }
-
-  //   if (recipe.image !== fakeRecipe.image) {
-  //     await recipesRepository.delete(recipe.image)
-  //   }
-
-  //   await sut.execute(fakeRecipe)
-
-  //   // console.log(updatedRecipe.image !== recipe.image)
-
-  //   // TODO :: verify image exists
-  //   // expect().toHaveBeenCalled()
-  // })
-
   test('Should be able to delete image when udating new one', async () => {
     const recipesRepository = new FakeRecipesRepository()
     const storageProvider = new StorageStub()

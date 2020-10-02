@@ -62,11 +62,16 @@ class RecipeController {
     } = req.body
 
     interface IFile extends Express.Multer.File {
+      file: {
+        key: string;
+      }
       key: string;
       location: string;
     }
 
-    const { key } = req.file as IFile
+    const file = req.file as IFile
+
+    const key = file?.key
 
     const imageSec = req.body?.image
 
